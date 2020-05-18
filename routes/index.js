@@ -60,4 +60,35 @@ router.get('/delete/:id',(req,res)=>{
     console.log(err)
   })
 })
+
+router.get('/update/:id',(req,res)=>{
+  var id=req.params.id;
+  var promise =User.findOne({"_id" : id});
+  promise.then((doc)=>{
+    res.render('update',{result : doc})
+  })
+})
+
+router.post('/update/:id',(req,res)=>{
+  console.log("id = " + req.params.id);
+  var id=req.params.id;
+  var promise = User.findOne({"_id" : id});
+  promise.then((data)=>{
+    data.name = req.body.name,
+    data.class = req.body.class,
+    data.rollNo = req.body.rollno
+    console.log(data);
+    data.save()
+    .then((result)=>{
+      res.redirect('/view');
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+ 
+  });
+  promise.catch((err)=>{
+    console.log(err)
+  })
+})
 module.exports = router;

@@ -16,7 +16,9 @@
         <td><%= result[i].name %></td>
         <td><%= result[i].class %></td>
         <td><%= result[i].rollNo %></td>
-        <td><a href="/delete/<%= result[i]._id %>"><i class="fas fa-trash-alt text-danger"></i></a></td>
+        <td><a href="/delete/<%= result[i]._id %>"><i class="fas fa-trash-alt text-danger"></i></a>
+          <a href="/update/<%= result[i]._id %>"><i class="fa fa-pencil text-info" aria-hidden="true"></i></a>
+        </td>
       </tr>
       <% } %>
     </tbody>
