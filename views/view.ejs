@@ -1,0 +1,24 @@
+<div class="container" style="margin-top: 100px;">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">NAME</th>
+        <th scope="col">CLASS</th>
+        <th scope="col">ROLL NO</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+       <% for (var i = 0; i < result.length; i++) { %>
+      <tr>
+        <th scope="row"><%= i+1 %></th>
+        <td><%= result[i].name %></td>
+        <td><%= result[i].class %></td>
+        <td><%= result[i].rollNo %></td>
+        <td><a href="/delete/<%= result[i]._id %>"><i class="fas fa-trash-alt text-danger"></i></a></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
